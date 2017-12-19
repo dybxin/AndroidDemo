@@ -3,9 +3,11 @@ package com.example.mydemo.net;
 
 
 
-import com.example.videostream.model.bean.LoginResult;
-import com.example.videostream.model.body.LoginBody;
-import com.example.videostream.rx.HttpResultFunc;
+
+
+import com.example.mydemo.model.bean.LoginResult;
+import com.example.mydemo.model.body.LoginBody;
+import com.example.mydemo.rx.HttpResultFunc;
 
 import io.reactivex.Observable;
 

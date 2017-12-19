@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
 
-import com.example.videostream.base.Constant;
-import com.example.videostream.utils.DES;
+import com.example.mydemo.base.Constant;
+import com.example.mydemo.utils.DES;
 import com.google.api.client.auth.oauth2.ClientCredentialsTokenRequest;
 import com.google.api.client.auth.oauth2.TokenResponse;
 import com.google.api.client.http.BasicAuthentication;

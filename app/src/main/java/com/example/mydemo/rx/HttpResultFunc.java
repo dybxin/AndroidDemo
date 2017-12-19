@@ -2,7 +2,9 @@ package com.example.mydemo.rx;
 
 
 
-import com.example.videostream.model.bean.HttpResult;
+
+
+import com.example.mydemo.model.bean.HttpResult;
 
 import io.reactivex.functions.Function;
 

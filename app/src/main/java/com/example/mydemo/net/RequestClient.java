@@ -2,8 +2,8 @@ package com.example.mydemo.net;
 
 
 
-import com.example.videostream.AppApplication;
-import com.example.videostream.base.Constant;
+import com.example.mydemo.AppApplication;
+import com.example.mydemo.base.Constant;
 
 import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;

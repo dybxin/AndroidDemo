@@ -16,7 +16,7 @@
 package com.example.mydemo.net;
 
 
-import com.example.videostream.model.bean.HttpResult;
+import com.example.mydemo.model.bean.HttpResult;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
