@@ -1,20 +1,28 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
         applicationId "com.example.mydemo"
-        minSdkVersion 19
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 18
+        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    configurations.all {//解决冲突
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:2.0.1'
     }
 }
 
@@ -25,4 +33,40 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+
+    //6.0动态授权帮助库
+    compile("com.github.hotchemi:permissionsdispatcher:3.0.1") {
+        // if you don't use android.app.Fragment you can exclude support for them
+        exclude module: "support-v13"
+    }
+    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.0.1"
+
+    //http
+    compile "io.reactivex.rxjava2:rxjava:2.1.7"
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    //Log
+    debugCompile 'com.zchu:zlog:1.0.0'
+    testCompile 'com.zchu:zlog:1.0.0'
+    releaseCompile 'com.zchu:zlog-no-op:1.0.0'
+
+    //谷歌OAuth客户端库
+    compile('com.google.oauth-client:google-oauth-client:1.22.0', {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+        exclude group: 'junit', module: 'junit'
+        exclude group: 'com.google.android', module: 'android'
+    })
+    compile('com.google.http-client:google-http-client-gson:1.22.0', {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+        exclude group: 'junit', module: 'junit'
+        exclude group: 'com.google.android', module: 'android'
+    })
 }
